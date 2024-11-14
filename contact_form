@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to external CSS file -->
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a> |
+        <a href="web_programming.html">Portfolio</a> |
+        <a href="contact_form.html">Contact Form</a>
+    </nav>
+
+    <h1>Contact Me</h1>
+    <form action="#" method="post">
+        <label for="full-name">Full Name:</label><br>
+        <input type="text" id="full-name" name="full-name" placeholder="Your Name" required><br><br>
+
+        <label for="best-contact-time">Best Time to Contact You:</label><br>
+        <input type="text" id="best-contact-time" name="best-contact-time" placeholder="Morning, Afternoon, Evening"><br><br>
+
+        <label for="favorite-activity">Favorite Outdoor Activity:</label><br>
+        <input type="text" id="favorite-activity" name="favorite-activity" placeholder="Hiking, Disc Golf, etc."><br><br>
+
+        <label for="dream-vacation">Dream Vacation Destination:</label><br>
+        <input type="text" id="dream-vacation" name="dream-vacation" placeholder="Your Dream Destination"><br><br>
+
+        <label for="preferred-contact-method">Preferred Contact Method:</label><br>
+        <select id="preferred-contact-method" name="preferred-contact-method">
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
+            <option value="text">Text</option>
+        </select><br><br>
+
+        <label for="website-purpose">What Brings You Here? (Website Purpose):</label><br>
+        <textarea id="website-purpose" name="website-purpose" rows="4" placeholder="Let me know how I can help"></textarea><br><br>
+
+        <label for="budget-range">Project Budget Range (If Applicable):</label><br>
+        <input type="number" id="budget-range" name="budget-range" placeholder="e.g., 5000"><br><br>
+
+        <label for="fav-website">A Website You Visit Regularly:</label><br>
+        <input type="url" id="fav-website" name="fav-website" placeholder="https://example.com"><br><br>
+
+        <label for="contact-newsletter">Join My Monthly Newsletter?</label><br>
+        <input type="radio" id="newsletter-yes" name="contact-newsletter" value="yes">
+        <label for="newsletter-yes">Yes, sign me up!</label><br>
+        <input type="radio" id="newsletter-no" name="contact-newsletter" value="no">
+        <label for="newsletter-no">No, thanks.</label><br><br>
+
+        <label for="hobby-skill">A Hobby You’re Proud of:</label><br>
+        <input type="text" id="hobby-skill" name="hobby-skill" placeholder="Disc Golf Champion, Master Chef, etc."><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
