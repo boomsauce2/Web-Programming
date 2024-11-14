@@ -1,11 +1,13 @@
+/* Orange and Black Theme Styling for Portfolio */
+
+/* Body styling */
 body {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    background: linear-gradient(to bottom right, #ff7eb3, #ff65a3, #7afcff);
-    color: #333;
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Black background */
+    color: #f1f1f1; /* Light text color for readability */
     margin: 0;
     padding: 0;
     text-align: center;
-    overflow-x: hidden;
 }
 
 /* Navigation styling */
@@ -16,7 +18,7 @@ nav {
 }
 
 nav a {
-    color: #fff;
+    color: #FFA500; /* Orange text */
     font-weight: bold;
     text-decoration: none;
     margin: 0 15px;
@@ -26,14 +28,15 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #ff7eb3;
+    background-color: #FFA500; /* Orange background on hover */
+    color: #000; /* Black text on hover */
     transform: scale(1.1);
 }
 
 /* Header and Section Titles */
 h1, h2 {
-    font-family: 'Pacifico', cursive, sans-serif;
-    color: #ff4d6d;
+    font-family: Arial, sans-serif;
+    color: #FFA500; /* Orange */
     text-shadow: 2px 2px #333;
     margin-top: 20px;
 }
@@ -52,20 +55,20 @@ p {
     font-size: 1.2em;
     line-height: 1.6;
     margin: 15px;
-    color: #333;
+    color: #f1f1f1; /* Light text for readability */
     padding: 0 20px;
 }
 
 /* Link Styling */
 a {
-    color: #ff4d6d;
+    color: #FFA500; /* Orange */
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
 
 a:hover {
-    color: #333;
+    color: #f1f1f1; /* Light color on hover */
 }
 
 /* Image styling */
@@ -82,18 +85,19 @@ img:hover {
 
 /* Form styling */
 form {
-    background-color: #fff;
+    background-color: #333; /* Dark form background */
     border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5px 15px rgba(255, 165, 0, 0.5); /* Orange shadow */
     padding: 20px;
     margin: 20px auto;
     max-width: 500px;
     text-align: left;
+    color: #f1f1f1;
 }
 
 label {
     font-weight: bold;
-    color: #333;
+    color: #FFA500; /* Orange label color */
 }
 
 input, textarea, select, button {
@@ -101,19 +105,21 @@ input, textarea, select, button {
     padding: 10px;
     margin-top: 5px;
     margin-bottom: 15px;
-    border: 2px solid #ff4d6d;
+    border: 2px solid #FFA500; /* Orange border */
     border-radius: 5px;
     box-sizing: border-box;
     transition: box-shadow 0.3s;
+    background-color: #222; /* Dark background for inputs */
+    color: #f1f1f1; /* Light text color */
 }
 
 input:focus, textarea:focus, select:focus {
-    box-shadow: 0px 0px 10px rgba(255, 77, 109, 0.5);
+    box-shadow: 0px 0px 10px rgba(255, 165, 0, 0.5); /* Orange focus shadow */
 }
 
 button {
-    background-color: #ff4d6d;
-    color: #fff;
+    background-color: #FFA500; /* Orange button background */
+    color: #000; /* Black text color for buttons */
     font-weight: bold;
     cursor: pointer;
     border: none;
@@ -121,7 +127,7 @@ button {
 }
 
 button:hover {
-    background-color: #ff7eb3;
+    background-color: #ff9900; /* Slightly darker orange on hover */
     transform: scale(1.05);
 }
 
@@ -130,5 +136,5 @@ footer {
     margin-top: 20px;
     padding: 15px;
     font-size: 0.9em;
-    color: #666;
+    color: #FFA500; /* Orange footer text */
 }
