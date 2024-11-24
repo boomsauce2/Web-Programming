@@ -27,7 +27,7 @@
     <section id="about" class="section centered">
         <h2>About Me</h2>
         <p>Hi, I’m Paul. I’m learning web programming as part of my Computer Science Degree. I hope to use these skills to create amazing websites.</p>
-        <p>In my free time, I enjoy playing disc golf, camping with my family, and having fun outdoors.</p>
+        <p>In my free time, I enjoy playing disc golf, camping with my family, and having fun outdoors. This portfolio showcases my journey so far and invites you to learn more about me and my work.</p>
     </section>
 
     <footer>
@@ -35,19 +35,12 @@
     </footer>
 
     <script>
-        // Smooth scrolling for "Explore More" button
         document.querySelector('.cta-button').addEventListener('click', function(e) {
             e.preventDefault();
             const aboutSection = document.querySelector('#about');
-            aboutSection.scrollIntoView({
-                behavior: 'smooth'
-            });
-
-            // Temporary highlight for visual feedback
+            aboutSection.scrollIntoView({ behavior: 'smooth' });
             aboutSection.style.backgroundColor = '#FF8C00';
-            setTimeout(() => {
-                aboutSection.style.backgroundColor = '';
-            }, 1000);
+            setTimeout(() => { aboutSection.style.backgroundColor = ''; }, 1000);
         });
     </script>
 </body>
