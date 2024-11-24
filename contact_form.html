@@ -48,9 +48,10 @@
         <div class="form-group">
             <label for="product">Select Product:</label>
             <select id="product" name="product">
-                <option value="disc">Disc Golf Gear</option>
-                <option value="camping">Camping Gear</option>
-                <option value="hiking">Hiking Equipment</option>
+                <option value="disc_golf_disc">Disc Golf Disc - $19.99</option>
+                <option value="camping_tent">Camping Tent - $120.00</option>
+                <option value="hiking_backpack">Hiking Backpack - $85.00</option>
+                <option value="outdoor_grill">Portable Outdoor Grill - $59.99</option>
             </select>
         </div>
 
@@ -73,9 +74,10 @@
             const product = document.getElementById('product').value;
             let price = 0;
 
-            if (product === 'disc') price = 20;
-            else if (product === 'camping') price = 50;
-            else if (product === 'hiking') price = 30;
+            if (product === 'disc_golf_disc') price = 19.99;
+            else if (product === 'camping_tent') price = 120.00;
+            else if (product === 'hiking_backpack') price = 85.00;
+            else if (product === 'outdoor_grill') price = 59.99;
 
             const total = quantity * price || 0;
             document.getElementById('total').value = `$${total.toFixed(2)}`;
