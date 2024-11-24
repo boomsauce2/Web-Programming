@@ -61,20 +61,41 @@ nav a:hover {
     color: white;
 }
 
-/* Section Styling */
-.centered {
-    text-align: center;
-    padding: 100px 20px;
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
     margin: auto;
-    max-width: 800px;
 }
 
-#about {
-    padding: 100px 20px;
-    margin-top: 50px;
+.gallery-grid figure {
+    text-align: center;
     background-color: #1a1a1a;
-    border-top: 2px solid #FFA500;
-    transition: background-color 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.8);
+}
+
+.gallery-grid figcaption {
+    padding: 10px;
+    background-color: #333333;
+    font-size: 0.9em;
+    color: #FFA500;
 }
 
 /* Footer */
@@ -84,51 +105,4 @@ footer {
     text-align: center;
     padding: 15px 0;
     margin-top: 20px;
-}
-
-/* Contact Form Styling */
-form {
-    max-width: 600px;
-    margin: auto;
-    background-color: #1a1a1a;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
-}
-
-form .form-group {
-    margin-bottom: 20px;
-}
-
-form label {
-    display: block;
-    color: #FFA500;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-form input, form textarea, form select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    background-color: #333333;
-    color: #FFA500;
-    border: 1px solid #FFA500;
-    border-radius: 4px;
-}
-
-form button {
-    background-color: #FFA500;
-    color: #000000;
-    border: none;
-    padding: 12px 20px;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-form button:hover {
-    background-color: #FF8C00;
-    color: white;
 }
