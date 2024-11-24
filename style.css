@@ -28,12 +28,6 @@ nav a:hover {
     color: #FF8C00;
 }
 
-h1, p {
-    text-align: center;
-    color: #FFA500;
-    margin: 20px 0;
-}
-
 /* Hero Section */
 .hero {
     background: url('images/Outdoor Stuff.webp') no-repeat center center / cover;
