@@ -1,7 +1,7 @@
 /* General Styling */
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    background: linear-gradient(135deg, #f7f7f7, #e2f3e2);
     color: #333;
     margin: 0;
     padding: 0;
@@ -28,47 +28,54 @@ nav a:hover {
     color: #FF8C00;
 }
 
-/* Hero Section */
-.hero {
-    background: url('Outdoor Stuff.webp') no-repeat center center / cover;
-    color: white;
+h1 {
     text-align: center;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hero-overlay {
-    background: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.hero h1 {
     font-size: 2.5em;
-    margin: 0 0 10px;
-}
-
-.hero p {
-    font-size: 1.2em;
-    margin: 10px 0;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #FFA500;
+    margin-top: 20px;
     color: #333;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
 }
 
-.cta-button:hover {
-    background-color: #FF8C00;
-    color: white;
+p {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.gallery-grid figure {
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: white;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.gallery-grid figcaption {
+    padding: 10px;
+    font-size: 0.9em;
+    color: #555;
 }
 
 /* Footer */
