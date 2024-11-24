@@ -34,6 +34,39 @@ h1, p {
     margin: 20px 0;
 }
 
+/* Hero Section */
+.hero {
+    background: url('images/Outdoor Stuff.webp') no-repeat center center / cover;
+    color: white;
+    text-align: center;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #FFA500;
+    color: #333333;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #FF8C00;
+    color: white;
+}
+
 /* Gallery Grid */
 .gallery-grid {
     display: grid;
