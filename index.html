@@ -20,10 +20,12 @@
         <div class="hero-overlay">
             <h1>Welcome to Paul's Web Programming Journey</h1>
             <p>See all about web programming, disc golf, and outdoor adventures.</p>
-            <a href="#about" class="cta-button">Explore More</a>
+            <!-- Updated Explore More Button -->
+            <a href="#about" class="cta-button" id="explore-more">Explore More</a>
         </div>
     </header>
 
+    <!-- About Me Section -->
     <section id="about" class="section centered">
         <h2>About Me</h2>
         <p>Hi, Hello all, I’m Paul. I’m learning web programming to finish my Computer Science Degree.</p>
@@ -33,5 +35,16 @@
     <footer>
         <p>&copy; 2024 Paul's Web Programming Portfolio. Built with creativity, learning, and love for the outdoors.</p>
     </footer>
+
+    <!-- JavaScript for Smooth Scrolling -->
+    <script>
+        // Smooth scrolling fallback for Explore More button
+        document.getElementById('explore-more').addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default anchor behavior
+            document.querySelector('#about').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
 </html>
