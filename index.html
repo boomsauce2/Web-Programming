@@ -38,9 +38,16 @@
         // Smooth scrolling for "Explore More" button
         document.querySelector('.cta-button').addEventListener('click', function(e) {
             e.preventDefault();
-            document.querySelector('#about').scrollIntoView({
+            const aboutSection = document.querySelector('#about');
+            aboutSection.scrollIntoView({
                 behavior: 'smooth'
             });
+
+            // Temporary highlight for visual feedback
+            aboutSection.style.backgroundColor = '#FF8C00';
+            setTimeout(() => {
+                aboutSection.style.backgroundColor = '';
+            }, 1000);
         });
     </script>
 </body>
