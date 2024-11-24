@@ -48,10 +48,13 @@
         <div class="form-group">
             <label for="product">Select Product:</label>
             <select id="product" name="product">
-                <option value="disc_golf_disc">Disc Golf Disc - $19.99</option>
-                <option value="camping_tent">Camping Tent - $120.00</option>
-                <option value="hiking_backpack">Hiking Backpack - $85.00</option>
-                <option value="outdoor_grill">Portable Outdoor Grill - $59.99</option>
+                <option value="water_bottle">Insulated Water Bottle - $25.00</option>
+                <option value="umbrella">Disc Golf Umbrella - $35.00</option>
+                <option value="towel">Disc Golf Towel - $15.00</option>
+                <option value="exclusive_disc">Exclusive Disc Golf Disc - $40.00</option>
+                <option value="disc_bag">Disc Golf Bag - $75.00</option>
+                <option value="disc_cart">Disc Golf Cart - $200.00</option>
+                <option value="dice_game">Disc Golf Dice Game - $20.00</option>
             </select>
         </div>
 
@@ -74,10 +77,13 @@
             const product = document.getElementById('product').value;
             let price = 0;
 
-            if (product === 'disc_golf_disc') price = 19.99;
-            else if (product === 'camping_tent') price = 120.00;
-            else if (product === 'hiking_backpack') price = 85.00;
-            else if (product === 'outdoor_grill') price = 59.99;
+            if (product === 'water_bottle') price = 25.00;
+            else if (product === 'umbrella') price = 35.00;
+            else if (product === 'towel') price = 15.00;
+            else if (product === 'exclusive_disc') price = 40.00;
+            else if (product === 'disc_bag') price = 75.00;
+            else if (product === 'disc_cart') price = 200.00;
+            else if (product === 'dice_game') price = 20.00;
 
             const total = quantity * price || 0;
             document.getElementById('total').value = `$${total.toFixed(2)}`;
