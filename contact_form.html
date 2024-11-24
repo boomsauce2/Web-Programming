@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Add FontAwesome for icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav>
@@ -22,46 +20,44 @@
     <p>Have questions or want to reach out? Fill out the form below!</p>
 
     <form id="contactForm">
-        <!-- Field with tooltip and icon -->
-        <div class="input-with-icon">
+        <div class="form-group">
             <label for="name">Name:</label>
-            <i class="fa fa-user"></i>
-            <input type="text" id="name" name="name" placeholder="Your Name" title="Enter your full name" required>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
         </div>
 
-        <div class="input-with-icon">
+        <div class="form-group">
             <label for="email">Email:</label>
-            <i class="fa fa-envelope"></i>
-            <input type="email" id="email" name="email" placeholder="Your Email" title="Enter a valid email address" required>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
         </div>
 
-        <div class="input-with-icon">
+        <div class="form-group">
             <label for="phone">Phone:</label>
-            <i class="fa fa-phone"></i>
-            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" title="Enter your phone number">
+            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number">
         </div>
 
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="4" placeholder="Your Message" title="Enter your message"></textarea>
+        <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" placeholder="Your Message"></textarea>
+        </div>
 
-        <label for="quantity">Enter Quantity:</label>
-        <input type="number" id="quantity" name="quantity" placeholder="0" required>
+        <div class="form-group">
+            <label for="quantity">Enter Quantity:</label>
+            <input type="number" id="quantity" name="quantity" placeholder="0" required>
+        </div>
 
-        <label for="product">Select Product:</label>
-        <select id="product" name="product">
-            <option value="disc">Disc Golf Gear</option>
-            <option value="camping">Camping Gear</option>
-            <option value="hiking">Hiking Equipment</option>
-        </select>
+        <div class="form-group">
+            <label for="product">Select Product:</label>
+            <select id="product" name="product">
+                <option value="disc">Disc Golf Gear</option>
+                <option value="camping">Camping Gear</option>
+                <option value="hiking">Hiking Equipment</option>
+            </select>
+        </div>
 
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address" placeholder="Your Address" title="Enter your address">
-
-        <label for="zip">Zip Code:</label>
-        <input type="text" id="zip" name="zip" placeholder="Your Zip Code" title="Enter your zip code">
-
-        <label for="total">Total:</label>
-        <input type="text" id="total" name="total" placeholder="$0.00" readonly>
+        <div class="form-group">
+            <label for="total">Total:</label>
+            <input type="text" id="total" name="total" placeholder="$0.00" readonly>
+        </div>
 
         <button type="button" onclick="calculateTotal()">Calculate Total</button>
         <button type="submit">Submit</button>
@@ -72,10 +68,6 @@
     </footer>
 
     <script>
-        // Calculate total dynamically
-        document.getElementById('quantity').addEventListener('input', calculateTotal);
-        document.getElementById('product').addEventListener('change', calculateTotal);
-
         function calculateTotal() {
             const quantity = document.getElementById('quantity').value;
             const product = document.getElementById('product').value;
@@ -87,46 +79,6 @@
 
             const total = quantity * price || 0;
             document.getElementById('total').value = `$${total.toFixed(2)}`;
-        }
-
-        // Real-time validation
-        document.querySelector('form').addEventListener('submit', function (e) {
-            const name = document.getElementById('name');
-            const email = document.getElementById('email');
-            let valid = true;
-
-            if (!name.value.trim()) {
-                showError(name, 'Name is required.');
-                valid = false;
-            } else {
-                removeError(name);
-            }
-
-            if (!email.value.includes('@')) {
-                showError(email, 'Enter a valid email address.');
-                valid = false;
-            } else {
-                removeError(email);
-            }
-
-            if (!valid) e.preventDefault(); // Stop submission if invalid
-        });
-
-        function showError(input, message) {
-            let error = input.nextElementSibling;
-            if (!error) {
-                error = document.createElement('div');
-                error.className = 'error';
-                input.parentNode.insertBefore(error, input.nextSibling);
-            }
-            error.textContent = message;
-            input.style.borderColor = 'red';
-        }
-
-        function removeError(input) {
-            const error = input.nextElementSibling;
-            if (error) error.remove();
-            input.style.borderColor = '';
         }
     </script>
 </body>
