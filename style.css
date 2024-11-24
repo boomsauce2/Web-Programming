@@ -1,121 +1,75 @@
-/* General Styling */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #000000;
-    color: #FFA500;
-    margin: 0;
-    padding: 0;
-}
-
-nav {
-    position: sticky;
-    top: 0;
-    background-color: #333333;
-    text-align: center;
-    padding: 10px;
-    z-index: 1000;
-}
-
-nav a {
-    color: #FFA500;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #FF8C00;
-}
-
-/* Hero Section */
-.hero {
-    background: url('images/outdoor_stuff.webp') no-repeat center center / cover;
-    color: white;
-    text-align: center;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hero-overlay {
-    background: rgba(0, 0, 0, 0.6);
+/* Contact Form Styling */
+form {
+    max-width: 600px;
+    margin: auto;
+    background-color: #1a1a1a;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8);
 }
 
-.cta-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #FFA500;
-    color: #333333;
-    text-decoration: none;
-    border-radius: 5px;
+form label {
+    display: block;
+    color: #FFA500;
+    margin-bottom: 8px;
     font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
 }
 
-.cta-button:hover {
+form input, form textarea, form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #333333;
+    color: #FFA500;
+    border: 1px solid #FFA500;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form input:focus, form textarea:focus, form select:focus {
+    outline: none;
+    border-color: #FF8C00;
+    background-color: #444444;
+}
+
+form button {
+    background-color: #FFA500;
+    color: #000000;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
     background-color: #FF8C00;
     color: white;
 }
 
-/* About Me Section */
-.centered {
-    text-align: center;
-    padding: 50px 20px;
-    margin: auto;
-    max-width: 800px;
+/* Inputs with icons */
+.input-with-icon {
+    position: relative;
+    margin-bottom: 20px;
 }
 
-/* Gallery Grid */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: auto;
+.input-with-icon i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #FFA500;
 }
 
-.gallery-grid figure {
-    text-align: center;
-    background-color: #1a1a1a;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+.input-with-icon input {
+    padding-left: 35px;
 }
 
-.gallery-grid img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery-grid img:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.8);
-}
-
-.gallery-grid figcaption {
-    padding: 10px;
-    background-color: #333333;
+/* Error Messages */
+.error {
+    color: red;
     font-size: 0.9em;
-    color: #FFA500;
-}
-
-/* Footer */
-footer {
-    background-color: #333333;
-    color: #FFA500;
-    text-align: center;
-    padding: 15px 0;
-    margin-top: 20px;
-}
-
-/* Smooth Scrolling */
-html {
-    scroll-behavior: smooth;
+    margin-top: -10px;
+    margin-bottom: 10px;
 }
