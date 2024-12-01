@@ -1,57 +1,58 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #000;
-    color: #FFA500;
-    margin: 0;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disc Golf Basics</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="text_terms.html">Terms</a>
+        <a href="image_gallery.html">Gallery</a>
+        <a href="multimedia.html">Multimedia</a>
+        <a href="links.html">Links</a>
+        <a href="contact_form.html">Contact</a>
+    </nav>
 
-nav {
-    background-color: #333;
-    text-align: center;
-    padding: 10px;
-}
+    <header>
+        <h1>Disc Golf Basics</h1>
+        <p>Learn how to throw a perfect disc golf shot and improve your skills.</p>
+    </header>
 
-nav a {
-    color: #FFA500;
-    margin: 0 15px;
-    text-decoration: none;
-}
+    <section>
+        <h2>Step-by-Step Guide</h2>
+        <ol>
+            <li><strong>Select the Right Disc:</strong> Choose a disc suited for your throw type (driver, midrange, or putter).</li>
+            <li><strong>Grip the Disc:</strong> Hold the disc firmly with fingers under the rim and your thumb on top.</li>
+            <li><strong>Stance and Aim:</strong> Stand sideways to your target with your dominant foot slightly back.</li>
+            <li><strong>Throw the Disc:</strong> Pull the disc back and release it in a smooth motion.</li>
+        </ol>
+    </section>
 
-.hero {
-    background: url('images/outdoor_stuff.webp') no-repeat center center / cover;
-    color: white;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
+    <section>
+        <h2>Visual Guide</h2>
+        <img src="images/disc_throw_tutorial.jpg" alt="Disc Throw Tutorial" class="tutorial-image">
+        <p>This image demonstrates the proper form for a backhand throw.</p>
+    </section>
 
-.cta-button {
-    background-color: #FFA500;
-    color: #333;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    text-decoration: none;
-}
+    <section>
+        <h2>Watch a Tutorial</h2>
+        <iframe 
+            width="560" 
+            height="315" 
+            src="https://www.youtube.com/embed/UOej_nrLGno" 
+            title="Disc Golf Tutorial" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+        <p>Check out this video for tips and tricks to refine your disc golf technique!</p>
+    </section>
 
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-.gallery-grid img {
-    border-radius: 10px;
-    width: 100%;
-}
-
-.tutorial-image {
-    display: block;
-    max-width: 80%;
-    margin: auto;
-    border-radius: 10px;
-}
+    <footer>
+        <p>&copy; 2024 Paul's Web Programming Portfolio. Built with creativity and love for the outdoors.</p>
+    </footer>
+</body>
+</html>
