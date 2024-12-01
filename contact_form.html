@@ -21,97 +21,81 @@
         <p>Have questions, feedback, or want to connect? Fill out the form below!</p>
     </header>
 
-    <form id="contactForm" class="contact-form">
-        <!-- Basic Information -->
-        <div class="form-group">
+    <!-- Product Order Form -->
+    <section>
+        <h2>Order Form</h2>
+        <form id="contactForm" class="contact-form">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" placeholder="Your Name" required>
-        </div>
 
-        <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="Your Email" required>
-        </div>
 
-        <div class="form-group">
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number">
-        </div>
-
-        <!-- New Message Field -->
-        <div class="form-group">
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" placeholder="Write your message here..." rows="4"></textarea>
-        </div>
-
-        <!-- Product Selection -->
-        <div class="form-group">
             <label for="product">Select Product:</label>
             <select id="product" name="product">
-                <option value="water_bottle">Insulated Water Bottle - $25.00</option>
-                <option value="umbrella">Disc Golf Umbrella - $35.00</option>
-                <option value="towel">Disc Golf Towel - $15.00</option>
-                <option value="exclusive_disc">Exclusive Disc Golf Disc - $40.00</option>
-                <option value="disc_bag">Disc Golf Bag - $75.00</option>
-                <option value="disc_cart">Disc Golf Cart - $200.00</option>
-                <option value="dice_game">Disc Golf Dice Game - $20.00</option>
+                <option value="water_bottle">Water Bottle - $25</option>
+                <option value="umbrella">Umbrella - $35</option>
+                <option value="disc">Disc Golf Disc - $40</option>
             </select>
-        </div>
 
-        <div class="form-group">
             <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" name="quantity" placeholder="0" required>
-        </div>
+            <input type="number" id="quantity" name="quantity" placeholder="1" required>
 
-        <div class="form-group">
-            <label for="address">Shipping Address:</label>
-            <textarea id="address" name="address" placeholder="Enter your shipping address here..." rows="3"></textarea>
-        </div>
-
-        <div class="form-group">
             <label for="total">Total:</label>
             <input type="text" id="total" name="total" placeholder="$0.00" readonly>
-        </div>
 
-        <!-- New Preferred Contact Method -->
-        <div class="form-group">
-            <label for="contact_method">Preferred Contact Method:</label>
-            <select id="contact_method" name="contact_method">
-                <option value="email">Email</option>
-                <option value="phone">Phone</option>
-            </select>
-        </div>
+            <button type="button" onclick="calculateTotal()">Calculate Total</button>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
 
-        <!-- New Newsletter Subscription -->
-        <div class="form-group">
-            <label for="subscribe">Subscribe to Newsletter:</label>
-            <input type="checkbox" id="subscribe" name="subscribe"> Yes, keep me updated!
-        </div>
+    <!-- Score Tracker -->
+    <section>
+        <h2>Disc Golf Score Tracker</h2>
+        <form id="scoreTracker" class="score-tracker">
+            <label for="hole1">Hole 1:</label>
+            <input type="number" id="hole1" placeholder="Enter score">
 
-        <button type="button" onclick="calculateTotal()">Calculate Total</button>
-        <button type="submit">Submit</button>
-    </form>
+            <label for="hole2">Hole 2:</label>
+            <input type="number" id="hole2" placeholder="Enter score">
+
+            <label for="hole3">Hole 3:</label>
+            <input type="number" id="hole3" placeholder="Enter score">
+
+            <label for="totalScore">Total Score:</label>
+            <input type="text" id="totalScore" readonly>
+
+            <button type="button" onclick="calculateScore()">Calculate Score</button>
+        </form>
+    </section>
 
     <footer>
         <p>&copy; 2024 Paul's Web Programming Portfolio. Built with creativity, learning, and love for the outdoors.</p>
     </footer>
 
     <script>
+        // Calculate total cost for the order form
         function calculateTotal() {
-            const quantity = document.getElementById('quantity').value;
-            const product = document.getElementById('product').value;
+            const product = document.getElementById("product").value;
+            const quantity = parseInt(document.getElementById("quantity").value) || 0;
             let price = 0;
 
-            if (product === 'water_bottle') price = 25.00;
-            else if (product === 'umbrella') price = 35.00;
-            else if (product === 'towel') price = 15.00;
-            else if (product === 'exclusive_disc') price = 40.00;
-            else if (product === 'disc_bag') price = 75.00;
-            else if (product === 'disc_cart') price = 200.00;
-            else if (product === 'dice_game') price = 20.00;
+            if (product === "water_bottle") price = 25;
+            else if (product === "umbrella") price = 35;
+            else if (product === "disc") price = 40;
 
-            const total = quantity * price || 0;
-            document.getElementById('total').value = `$${total.toFixed(2)}`;
+            const total = price * quantity;
+            document.getElementById("total").value = `$${total.toFixed(2)}`;
+        }
+
+        // Calculate total score for the score tracker
+        function calculateScore() {
+            const hole1 = parseInt(document.getElementById("hole1").value) || 0;
+            const hole2 = parseInt(document.getElementById("hole2").value) || 0;
+            const hole3 = parseInt(document.getElementById("hole3").value) || 0;
+
+            const totalScore = hole1 + hole2 + hole3;
+            document.getElementById("totalScore").value = totalScore;
         }
     </script>
 </body>
