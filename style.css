@@ -27,12 +27,6 @@ nav a {
     text-align: center;
 }
 
-.hero-overlay {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-}
-
 .cta-button {
     background-color: #FFA500;
     color: #333;
@@ -40,13 +34,7 @@ nav a {
     border: none;
     border-radius: 5px;
     font-weight: bold;
-    cursor: pointer;
     text-decoration: none;
-}
-
-.cta-button:hover {
-    background-color: #FF8C00;
-    color: #FFF;
 }
 
 .gallery-grid {
