@@ -22,26 +22,52 @@
     </header>
 
     <section class="gallery-grid">
-        <figure>
-            <img src="images/disc_golf_wichita.jpg" alt="Disc Golf Course in Wichita">
-            <figcaption>My favorite disc golf course in Wichita. That 50-foot putt was legendary!</figcaption>
-        </figure>
-        <figure>
-            <img src="images/family_camping.jpg" alt="Family Camping">
-            <figcaption>Camping under the stars with my family—our favorite tradition.</figcaption>
-        </figure>
-        <figure>
-            <img src="images/backyard_game.jpg" alt="Backyard Games">
-            <figcaption>Backyard games with friends—it’s always a good time.</figcaption>
-        </figure>
-        <figure>
-            <img src="images/mountain_campfire.jpg" alt="Mountain Campfire">
-            <figcaption>Relaxing by a campfire after a long hike in the mountains.</figcaption>
-        </figure>
+        <a href="images/disc_golf_wichita.jpg" class="lightbox">
+            <figure>
+                <img src="images/disc_golf_wichita.jpg" alt="Disc Golf Course in Wichita">
+                <figcaption>My favorite disc golf course in Wichita. That 50-foot putt was legendary!</figcaption>
+            </figure>
+        </a>
+        <a href="images/family_camping.jpg" class="lightbox">
+            <figure>
+                <img src="images/family_camping.jpg" alt="Family Camping">
+                <figcaption>Camping under the stars with my family—our favorite tradition.</figcaption>
+            </figure>
+        </a>
+        <a href="images/backyard_game.jpg" class="lightbox">
+            <figure>
+                <img src="images/backyard_game.jpg" alt="Backyard Games">
+                <figcaption>Backyard games with friends—it’s always a good time.</figcaption>
+            </figure>
+        </a>
+        <a href="images/mountain_campfire.jpg" class="lightbox">
+            <figure>
+                <img src="images/mountain_campfire.jpg" alt="Mountain Campfire">
+                <figcaption>Relaxing by a campfire after a long hike in the mountains.</figcaption>
+            </figure>
+        </a>
     </section>
 
     <footer>
         <p>&copy; 2024 Paul's Web Programming Portfolio. Built with creativity, learning, and love for the outdoors.</p>
     </footer>
+
+    <script>
+        document.querySelectorAll('.lightbox').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const imgSrc = this.href;
+                const lightbox = document.createElement('div');
+                lightbox.className = 'lightbox-overlay';
+                lightbox.innerHTML = `
+                    <div class="lightbox-content">
+                        <img src="${imgSrc}" alt="Gallery Image">
+                        <button onclick="document.body.removeChild(this.parentElement.parentElement)">Close</button>
+                    </div>
+                `;
+                document.body.appendChild(lightbox);
+            });
+        });
+    </script>
 </body>
 </html>
