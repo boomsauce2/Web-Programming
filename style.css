@@ -48,3 +48,10 @@ nav a {
     border-radius: 10px;
     width: 100%;
 }
+
+.tutorial-image {
+    display: block;
+    max-width: 80%;
+    margin: auto;
+    border-radius: 10px;
+}
