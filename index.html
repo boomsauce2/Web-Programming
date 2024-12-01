@@ -33,15 +33,5 @@
     <footer>
         <p>&copy; 2024 Paul's Web Programming Portfolio. Built with creativity, learning, and love for the outdoors.</p>
     </footer>
-
-    <script>
-        document.querySelector('.cta-button').addEventListener('click', function(e) {
-            e.preventDefault();
-            const aboutSection = document.querySelector('#about');
-            aboutSection.scrollIntoView({ behavior: 'smooth' });
-            aboutSection.style.backgroundColor = '#FF8C00';
-            setTimeout(() => { aboutSection.style.backgroundColor = ''; }, 1000);
-        });
-    </script>
 </body>
 </html>
