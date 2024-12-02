@@ -22,48 +22,74 @@
     </header>
 
     <form id="contactForm" class="contact-form">
-        <!-- User Information -->
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" placeholder="Your Name" required>
-        </div>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Your Email" required>
-        </div>
-        <div class="form-group">
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number">
-        </div>
+        <!-- Personal Information -->
+        <fieldset>
+            <legend>Personal Information</legend>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+            </div>
+        </fieldset>
 
         <!-- Product Selection -->
-        <div class="form-group">
-            <label for="product">Select Product:</label>
-            <select id="product" name="product">
-                <option value="water_bottle">Insulated Water Bottle - $25.00</option>
-                <option value="umbrella">Disc Golf Umbrella - $35.00</option>
-                <option value="towel">Disc Golf Towel - $15.00</option>
-                <option value="exclusive_disc">Exclusive Disc Golf Disc - $40.00</option>
-                <option value="disc_bag">Disc Golf Bag - $75.00</option>
-                <option value="disc_cart">Disc Golf Cart - $200.00</option>
-                <option value="dice_game">Disc Golf Dice Game - $20.00</option>
-            </select>
-        </div>
+        <fieldset>
+            <legend>Product Selection</legend>
+            <div class="form-group">
+                <label for="product">Select Product:</label>
+                <select id="product" name="product">
+                    <option value="water_bottle">Insulated Water Bottle - $25.00</option>
+                    <option value="umbrella">Disc Golf Umbrella - $35.00</option>
+                    <option value="towel">Disc Golf Towel - $15.00</option>
+                    <option value="exclusive_disc">Exclusive Disc Golf Disc - $40.00</option>
+                    <option value="disc_bag">Disc Golf Bag - $75.00</option>
+                    <option value="disc_cart">Disc Golf Cart - $200.00</option>
+                    <option value="dice_game">Disc Golf Dice Game - $20.00</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" placeholder="Enter quantity" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Shipping Address:</label>
+                <textarea id="address" name="address" rows="3" placeholder="Enter your shipping address"></textarea>
+            </div>
+        </fieldset>
 
-        <!-- Quantity and Pricing -->
-        <div class="form-group">
-            <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" name="quantity" min="1" placeholder="0" required>
-        </div>
+        <!-- Preferences -->
+        <fieldset>
+            <legend>Preferences</legend>
+            <div class="form-group">
+                <label>Preferred Contact Method:</label>
+                <label><input type="radio" name="contact_method" value="email" checked> Email</label>
+                <label><input type="radio" name="contact_method" value="phone"> Phone</label>
+            </div>
+            <div class="form-group">
+                <label for="subscribe">Subscribe to Newsletter:</label>
+                <input type="checkbox" id="subscribe" name="subscribe"> Yes, keep me updated!
+            </div>
+        </fieldset>
+
+        <!-- Pricing Information -->
         <div class="form-group">
             <label for="total">Total:</label>
             <input type="text" id="total" name="total" placeholder="$0.00" readonly>
         </div>
-        <div id="discount-info" style="color: #FFA500; font-weight: bold;">No Discount Applied</div>
+        <p id="discount-info" class="discount-info">No Discount Applied</p>
 
-        <!-- Submit Button -->
-        <button type="button" onclick="calculateTotal()">Calculate Total</button>
-        <button type="submit">Submit</button>
+        <!-- Submit -->
+        <div class="form-actions">
+            <button type="button" onclick="calculateTotal()" class="btn-calculate">Calculate Total</button>
+            <button type="submit" class="btn-submit">Submit</button>
+        </div>
     </form>
 
     <footer>
@@ -72,7 +98,6 @@
 
     <script>
         function calculateTotal() {
-            // Base prices for products
             const prices = {
                 water_bottle: 25.00,
                 umbrella: 35.00,
@@ -83,24 +108,20 @@
                 dice_game: 20.00
             };
 
-            // Retrieve form values
             const product = document.getElementById('product').value;
             const quantity = parseInt(document.getElementById('quantity').value) || 0;
             const pricePerItem = prices[product];
 
-            // Calculate discount
             let discount = 0;
             if (quantity > 50) {
-                discount = 0.10; // 10% discount
+                discount = 0.10;
             } else if (quantity > 20) {
-                discount = 0.05; // 5% discount
+                discount = 0.05;
             }
 
-            // Calculate totals
             const total = quantity * pricePerItem;
             const discountedTotal = total - (total * discount);
 
-            // Update form values
             document.getElementById('total').value = `$${discountedTotal.toFixed(2)}`;
             document.getElementById('discount-info').innerText = discount > 0
                 ? `Discount Applied: ${discount * 100}%`
