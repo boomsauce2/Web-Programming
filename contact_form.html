@@ -8,11 +8,11 @@
 </head>
 <body>
     <nav>
-        <a href="index.html">Home</a> |
-        <a href="text_terms.html">Terms</a> |
-        <a href="image_gallery.html">Gallery</a> |
-        <a href="multimedia.html">Multimedia</a> |
-        <a href="links.html">Links</a> |
+        <a href="index.html">Home</a>
+        <a href="text_terms.html">Terms</a>
+        <a href="image_gallery.html">Gallery</a>
+        <a href="multimedia.html">Multimedia</a>
+        <a href="links.html">Links</a>
         <a href="contact_form.html">Contact</a>
     </nav>
 
@@ -21,81 +21,90 @@
         <p>Have questions, feedback, or want to connect? Fill out the form below!</p>
     </header>
 
-    <!-- Product Order Form -->
-    <section>
-        <h2>Order Form</h2>
-        <form id="contactForm" class="contact-form">
+    <form id="contactForm" class="contact-form">
+        <!-- User Information -->
+        <div class="form-group">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" placeholder="Your Name" required>
-
+        </div>
+        <div class="form-group">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number">
+        </div>
 
+        <!-- Product Selection -->
+        <div class="form-group">
             <label for="product">Select Product:</label>
             <select id="product" name="product">
-                <option value="water_bottle">Water Bottle - $25</option>
-                <option value="umbrella">Umbrella - $35</option>
-                <option value="disc">Disc Golf Disc - $40</option>
+                <option value="water_bottle">Insulated Water Bottle - $25.00</option>
+                <option value="umbrella">Disc Golf Umbrella - $35.00</option>
+                <option value="towel">Disc Golf Towel - $15.00</option>
+                <option value="exclusive_disc">Exclusive Disc Golf Disc - $40.00</option>
+                <option value="disc_bag">Disc Golf Bag - $75.00</option>
+                <option value="disc_cart">Disc Golf Cart - $200.00</option>
+                <option value="dice_game">Disc Golf Dice Game - $20.00</option>
             </select>
+        </div>
 
+        <!-- Quantity and Pricing -->
+        <div class="form-group">
             <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" name="quantity" placeholder="1" required>
-
+            <input type="number" id="quantity" name="quantity" min="1" placeholder="0" required>
+        </div>
+        <div class="form-group">
             <label for="total">Total:</label>
             <input type="text" id="total" name="total" placeholder="$0.00" readonly>
+        </div>
+        <div id="discount-info" style="color: #FFA500; font-weight: bold;">No Discount Applied</div>
 
-            <button type="button" onclick="calculateTotal()">Calculate Total</button>
-            <button type="submit">Submit</button>
-        </form>
-    </section>
-
-    <!-- Score Tracker -->
-    <section>
-        <h2>Disc Golf Score Tracker</h2>
-        <form id="scoreTracker" class="score-tracker">
-            <label for="hole1">Hole 1:</label>
-            <input type="number" id="hole1" placeholder="Enter score">
-
-            <label for="hole2">Hole 2:</label>
-            <input type="number" id="hole2" placeholder="Enter score">
-
-            <label for="hole3">Hole 3:</label>
-            <input type="number" id="hole3" placeholder="Enter score">
-
-            <label for="totalScore">Total Score:</label>
-            <input type="text" id="totalScore" readonly>
-
-            <button type="button" onclick="calculateScore()">Calculate Score</button>
-        </form>
-    </section>
+        <!-- Submit Button -->
+        <button type="button" onclick="calculateTotal()">Calculate Total</button>
+        <button type="submit">Submit</button>
+    </form>
 
     <footer>
-        <p>&copy; 2024 Paul's Web Programming Portfolio. Built with creativity, learning, and love for the outdoors.</p>
+        <p>&copy; 2024 Paul's Web Programming Portfolio. Built with creativity and love for the outdoors.</p>
     </footer>
 
     <script>
-        // Calculate total cost for the order form
         function calculateTotal() {
-            const product = document.getElementById("product").value;
-            const quantity = parseInt(document.getElementById("quantity").value) || 0;
-            let price = 0;
+            // Base prices for products
+            const prices = {
+                water_bottle: 25.00,
+                umbrella: 35.00,
+                towel: 15.00,
+                exclusive_disc: 40.00,
+                disc_bag: 75.00,
+                disc_cart: 200.00,
+                dice_game: 20.00
+            };
 
-            if (product === "water_bottle") price = 25;
-            else if (product === "umbrella") price = 35;
-            else if (product === "disc") price = 40;
+            // Retrieve form values
+            const product = document.getElementById('product').value;
+            const quantity = parseInt(document.getElementById('quantity').value) || 0;
+            const pricePerItem = prices[product];
 
-            const total = price * quantity;
-            document.getElementById("total").value = `$${total.toFixed(2)}`;
-        }
+            // Calculate discount
+            let discount = 0;
+            if (quantity > 50) {
+                discount = 0.10; // 10% discount
+            } else if (quantity > 20) {
+                discount = 0.05; // 5% discount
+            }
 
-        // Calculate total score for the score tracker
-        function calculateScore() {
-            const hole1 = parseInt(document.getElementById("hole1").value) || 0;
-            const hole2 = parseInt(document.getElementById("hole2").value) || 0;
-            const hole3 = parseInt(document.getElementById("hole3").value) || 0;
+            // Calculate totals
+            const total = quantity * pricePerItem;
+            const discountedTotal = total - (total * discount);
 
-            const totalScore = hole1 + hole2 + hole3;
-            document.getElementById("totalScore").value = totalScore;
+            // Update form values
+            document.getElementById('total').value = `$${discountedTotal.toFixed(2)}`;
+            document.getElementById('discount-info').innerText = discount > 0
+                ? `Discount Applied: ${discount * 100}%`
+                : 'No Discount Applied';
         }
     </script>
 </body>
