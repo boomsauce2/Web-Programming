@@ -5,6 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Products</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Inline styles for enhancements */
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn-calculate, .btn-submit {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #FFA500;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-calculate:hover, .btn-submit:hover {
+            background-color: #FF8C00;
+            color: #fff;
+        }
+        fieldset {
+            border: 1px solid #FFA500;
+            border-radius: 5px;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+        }
+        legend {
+            font-size: 18px;
+            font-weight: bold;
+            color: #FFA500;
+        }
+        .order-form {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        .discount-info {
+            font-style: italic;
+            color: #FFA500;
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -55,12 +113,12 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="color">Preferred Color:</label>
-                <input type="text" id="color" name="color" placeholder="Enter color preference">
-            </div>
-            <div class="form-group">
                 <label for="quantity">Quantity:</label>
                 <input type="number" id="quantity" name="quantity" min="1" placeholder="Enter quantity" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Shipping Address:</label>
+                <textarea id="address" name="address" rows="3" placeholder="Enter your shipping address"></textarea>
             </div>
         </fieldset>
 
