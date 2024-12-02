@@ -19,6 +19,11 @@ nav a {
     margin: 0 15px;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #FF8C00;
 }
 
 /* Hero Section */
@@ -41,9 +46,15 @@ nav a {
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-/* Animations */
+.cta-button:hover {
+    background-color: #FF8C00;
+    transform: scale(1.1);
+}
+
+/* Fade-in Animation */
 .fade-in {
     animation: fadeIn 1.5s ease-in-out;
 }
