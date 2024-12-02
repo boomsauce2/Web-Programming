@@ -22,6 +22,7 @@
     </header>
 
     <form id="orderForm">
+        <!-- Personal Information -->
         <fieldset>
             <legend>Personal Information</legend>
             <label for="name">Name:</label>
@@ -34,6 +35,7 @@
             <input type="tel" id="phone" placeholder="Enter your phone number">
         </fieldset>
 
+        <!-- Product Selection -->
         <fieldset>
             <legend>Product Selection</legend>
             <label for="product">Select Product:</label>
@@ -41,12 +43,51 @@
                 <option value="25">Insulated Water Bottle - $25.00</option>
                 <option value="35">Disc Golf Umbrella - $35.00</option>
                 <option value="15">Disc Golf Towel - $15.00</option>
+                <option value="40">Exclusive Disc Golf Disc - $40.00</option>
+                <option value="75">Disc Golf Bag - $75.00</option>
+                <option value="200">Disc Golf Cart - $200.00</option>
             </select>
 
             <label for="quantity">Quantity:</label>
             <input type="number" id="quantity" min="1" placeholder="Enter quantity" required>
         </fieldset>
 
+        <!-- Delivery Details -->
+        <fieldset>
+            <legend>Delivery Details</legend>
+            <label for="shippingAddress">Shipping Address:</label>
+            <textarea id="shippingAddress" placeholder="Enter your shipping address" rows="3" required></textarea>
+
+            <label for="deliveryDate">Preferred Delivery Date:</label>
+            <input type="date" id="deliveryDate">
+        </fieldset>
+
+        <!-- Special Options -->
+        <fieldset>
+            <legend>Special Options</legend>
+            <label for="giftMessage">Gift Message:</label>
+            <textarea id="giftMessage" placeholder="Add a gift message (optional)" rows="2"></textarea>
+
+            <label>
+                <input type="checkbox" id="newsletter"> Subscribe to our newsletter
+            </label>
+        </fieldset>
+
+        <!-- Payment Method -->
+        <fieldset>
+            <legend>Payment Method</legend>
+            <label>
+                <input type="radio" name="payment" value="credit" required> Credit Card
+            </label>
+            <label>
+                <input type="radio" name="payment" value="paypal"> PayPal
+            </label>
+            <label>
+                <input type="radio" name="payment" value="bank"> Bank Transfer
+            </label>
+        </fieldset>
+
+        <!-- Order Summary -->
         <fieldset>
             <legend>Order Summary</legend>
             <p>Total: <span id="total">$0.00</span></p>
