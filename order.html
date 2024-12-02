@@ -95,6 +95,10 @@
                 <label for="phone">Phone Number:</label>
                 <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
             </div>
+            <div class="form-group">
+                <label for="date">Preferred Delivery Date:</label>
+                <input type="date" id="date" name="date">
+            </div>
         </fieldset>
 
         <!-- Product Selection -->
@@ -113,12 +117,32 @@
                 </select>
             </div>
             <div class="form-group">
+                <label for="color">Preferred Color:</label>
+                <input type="text" id="color" name="color" placeholder="Enter color preference">
+            </div>
+            <div class="form-group">
                 <label for="quantity">Quantity:</label>
                 <input type="number" id="quantity" name="quantity" min="1" placeholder="Enter quantity" required>
             </div>
             <div class="form-group">
+                <label for="notes">Order Notes:</label>
+                <textarea id="notes" name="notes" rows="3" placeholder="Add any special requests"></textarea>
+            </div>
+        </fieldset>
+
+        <!-- Delivery Information -->
+        <fieldset>
+            <legend>Delivery Information</legend>
+            <div class="form-group">
                 <label for="address">Shipping Address:</label>
-                <textarea id="address" name="address" rows="3" placeholder="Enter your shipping address"></textarea>
+                <textarea id="address" name="address" rows="3" placeholder="Enter your shipping address" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="delivery">Delivery Preference:</label>
+                <select id="delivery" name="delivery">
+                    <option value="standard">Standard Shipping</option>
+                    <option value="express">Express Shipping</option>
+                </select>
             </div>
         </fieldset>
 
