@@ -14,6 +14,7 @@
         <a href="multimedia.html">Multimedia</a>
         <a href="links.html">Links</a>
         <a href="order.html">Order</a>
+        <a href="contact_form.html">Contact</a>
     </nav>
 
     <header>
@@ -23,25 +24,47 @@
 
     <section class="gallery-grid">
         <figure>
-            <img src="images/disc_golf_wichita.jpg" alt="Disc Golf Course in Wichita">
+            <img src="images/disc_golf_wichita.jpg" alt="Disc Golf Course in Wichita" class="gallery-item">
             <figcaption>Disc Golf Course in Wichita.</figcaption>
         </figure>
         <figure>
-            <img src="images/family_camping.jpg" alt="Family Camping">
+            <img src="images/family_camping.jpg" alt="Family Camping" class="gallery-item">
             <figcaption>Camping with family under the stars.</figcaption>
         </figure>
         <figure>
-            <img src="images/backyard_game.jpg" alt="Backyard Games">
+            <img src="images/backyard_game.jpg" alt="Backyard Games" class="gallery-item">
             <figcaption>Backyard games with friends.</figcaption>
         </figure>
         <figure>
-            <img src="images/mountain_campfire.jpg" alt="Mountain Campfire">
+            <img src="images/mountain_campfire.jpg" alt="Mountain Campfire" class="gallery-item">
             <figcaption>Relaxing by a mountain campfire.</figcaption>
         </figure>
     </section>
 
+    <!-- Lightbox -->
+    <div id="lightbox" class="hidden">
+        <img id="lightbox-img" src="#" alt="Lightbox Image">
+    </div>
+
     <footer>
         <p>&copy; 2024 Paul's Web Programming Portfolio. Built with creativity and love for the outdoors.</p>
     </footer>
+
+    <script>
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                lightboxImg.src = item.src;
+                lightbox.classList.remove('hidden');
+            });
+        });
+
+        lightbox.addEventListener('click', () => {
+            lightbox.classList.add('hidden');
+        });
+    </script>
 </body>
 </html>
