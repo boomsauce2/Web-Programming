@@ -104,11 +104,9 @@
     </footer>
 
     <script>
-        // Load sounds
         const successSound = new Audio('sounds/success.mp3');
         const errorSound = new Audio('sounds/error.mp3');
 
-        // Calculate total cost
         function calculateTotal() {
             const product = parseFloat(document.getElementById('product').value);
             const quantity = parseInt(document.getElementById('quantity').value) || 0;
@@ -126,7 +124,6 @@
             discountSpan.innerText = discount ? `Discount Applied: ${discount * 100}%` : 'No Discount Applied';
         }
 
-        // Form submission handler
         document.getElementById('orderForm').addEventListener('submit', function(e) {
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
