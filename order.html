@@ -23,7 +23,6 @@
     </header>
 
     <form id="orderForm">
-        <!-- Personal Information -->
         <fieldset>
             <legend>Personal Information</legend>
             <label for="name">Name:</label>
@@ -36,7 +35,6 @@
             <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
         </fieldset>
 
-        <!-- Product Selection -->
         <fieldset>
             <legend>Product Selection</legend>
             <label for="product">Select Product:</label>
@@ -53,7 +51,6 @@
             <input type="number" id="quantity" name="quantity" min="1" placeholder="Enter quantity" required>
         </fieldset>
 
-        <!-- Delivery Details -->
         <fieldset>
             <legend>Delivery Details</legend>
             <label for="shippingAddress">Shipping Address:</label>
@@ -63,7 +60,6 @@
             <input type="date" id="deliveryDate" name="deliveryDate">
         </fieldset>
 
-        <!-- Special Options -->
         <fieldset>
             <legend>Special Options</legend>
             <label for="giftMessage">Gift Message:</label>
@@ -74,7 +70,6 @@
             </label>
         </fieldset>
 
-        <!-- Payment Method -->
         <fieldset>
             <legend>Payment Method</legend>
             <label>
@@ -88,7 +83,6 @@
             </label>
         </fieldset>
 
-        <!-- Order Summary -->
         <fieldset>
             <legend>Order Summary</legend>
             <p>Total: <span id="total">$0.00</span></p>
@@ -131,10 +125,10 @@
 
             if (!name || !email || quantity < 1) {
                 e.preventDefault();
-                errorSound.play(); // Play error sound
+                errorSound.play();
                 alert('Please fill in all required fields and ensure quantity is valid.');
             } else {
-                successSound.play(); // Play success sound
+                successSound.play();
                 alert('Thank you for your order!');
             }
         });
