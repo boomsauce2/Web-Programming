@@ -53,12 +53,11 @@ nav a:hover {
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 .cta-button:hover {
     background-color: #FF8C00;
-    transform: scale(1.1);
 }
 
 /* Forms */
@@ -119,12 +118,6 @@ form button {
 
 form button:hover {
     background-color: #FF8C00;
-}
-
-/* Error Styling */
-input.error,
-textarea.error {
-    border: 2px solid red;
 }
 
 /* Payment Options */
@@ -204,31 +197,6 @@ textarea.error {
 }
 
 .lightbox:not(.hidden) {
-    visibility: visible;
-    opacity: 1;
-}
-
-.lightbox::before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 50px;
-    height: 50px;
-    margin-top: -25px;
-    margin-left: -25px;
-    border: 5px solid #FFA500;
-    border-top: 5px solid transparent;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    z-index: 999;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.3s;
-}
-
-.lightbox.loading::before {
     visibility: visible;
     opacity: 1;
 }
