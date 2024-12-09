@@ -1,6 +1,6 @@
 /* General Body Styling */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
     margin: 0;
@@ -11,117 +11,82 @@ body {
 /* Navigation Bar */
 nav {
     background-color: #333;
-    color: #fff;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+    text-align: center;
+    padding: 15px;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 nav a {
     color: #fff;
+    margin: 0 15px;
     text-decoration: none;
-    font-weight: bold;
     font-size: 1.1rem;
-    padding: 5px 10px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
-    background-color: #ffa500;
-    color: #333;
-    border-radius: 5px;
+    color: #ffa500;
 }
 
 /* Hero Section */
 .hero {
-    background: url('images/outdoor_stuff.webp') no-repeat center center / cover;
-    height: 80vh;
+    background: url('./images/outdoor_stuff.webp') no-repeat center center / cover;
+    height: 400px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    position: relative;
     color: white;
 }
 
-.hero h1 {
-    font-size: 3rem;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-    margin-bottom: 15px;
-}
-
-.hero p {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 8px;
 }
 
 .cta-button {
     background-color: #ffa500;
     color: #333;
-    text-decoration: none;
     padding: 10px 20px;
-    font-weight: bold;
     border-radius: 5px;
-    transition: all 0.3s ease;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .cta-button:hover {
     background-color: #333;
-    color: #fff;
+    color: #ffa500;
     transform: scale(1.1);
 }
 
 /* Content Sections */
 section {
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 10px;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
 }
 
 h2 {
-    font-size: 2rem;
-    color: #ffa500;
     text-align: center;
-    margin-bottom: 20px;
+    color: #ffa500;
 }
 
 p {
-    font-size: 1.1rem;
     color: #555;
+    font-size: 1rem;
     line-height: 1.8;
 }
 
 /* Footer */
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     background-color: #333;
-    color: #fff;
-    margin-top: 20px;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    .cta-button {
-        font-size: 1rem;
-    }
+    color: white;
 }
