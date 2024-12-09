@@ -24,25 +24,26 @@
 
     <section class="gallery-grid">
         <figure>
-            <img src="images/disc_golf_wichita.jpg" alt="Disc Golf Course in Wichita" class="gallery-item">
+            <img src="images/disc_golf_wichita.jpg" alt="Disc Golf Course in Wichita" class="lightbox-img">
             <figcaption>Disc Golf Course in Wichita.</figcaption>
         </figure>
         <figure>
-            <img src="images/family_camping.jpg" alt="Family Camping" class="gallery-item">
+            <img src="images/family_camping.jpg" alt="Family Camping" class="lightbox-img">
             <figcaption>Camping with family under the stars.</figcaption>
         </figure>
         <figure>
-            <img src="images/backyard_game.jpg" alt="Backyard Games" class="gallery-item">
+            <img src="images/backyard_game.jpg" alt="Backyard Games" class="lightbox-img">
             <figcaption>Backyard games with friends.</figcaption>
         </figure>
         <figure>
-            <img src="images/mountain_campfire.jpg" alt="Mountain Campfire" class="gallery-item">
+            <img src="images/mountain_campfire.jpg" alt="Mountain Campfire" class="lightbox-img">
             <figcaption>Relaxing by a mountain campfire.</figcaption>
         </figure>
     </section>
 
-    <div id="lightbox" class="hidden">
-        <img id="lightbox-img" src="#" alt="Lightbox Image">
+    <div id="lightbox" class="lightbox hidden">
+        <span class="close-lightbox">&times;</span>
+        <img id="lightbox-image" src="" alt="">
     </div>
 
     <footer>
@@ -50,19 +51,17 @@
     </footer>
 
     <script>
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-
-        galleryItems.forEach(item => {
-            item.addEventListener('click', () => {
-                lightboxImg.src = item.src;
+        document.querySelectorAll('.lightbox-img').forEach(image => {
+            image.addEventListener('click', function () {
+                const lightbox = document.getElementById('lightbox');
+                const lightboxImage = document.getElementById('lightbox-image');
+                lightboxImage.src = this.src;
                 lightbox.classList.remove('hidden');
             });
         });
 
-        lightbox.addEventListener('click', () => {
-            lightbox.classList.add('hidden');
+        document.querySelector('.close-lightbox').addEventListener('click', function () {
+            document.getElementById('lightbox').classList.add('hidden');
         });
     </script>
 </body>
