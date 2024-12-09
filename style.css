@@ -29,7 +29,7 @@ nav a:hover {
 
 /* Hero Section */
 .hero {
-    background: url('images/outdoor_stuff.webp') no-repeat center center / cover;
+    background: url('images/outdoor_stuff_compressed.webp') no-repeat center center / cover;
     height: 400px;
     display: flex;
     flex-direction: column;
@@ -127,7 +127,7 @@ textarea.error {
     border: 2px solid red;
 }
 
-/* Payment Options Styling */
+/* Payment Options */
 .payment-options div {
     display: flex;
     align-items: center;
@@ -208,6 +208,40 @@ textarea.error {
     opacity: 1;
 }
 
+.lightbox::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    margin-top: -25px;
+    margin-left: -25px;
+    border: 5px solid #FFA500;
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 999;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s;
+}
+
+.lightbox.loading::before {
+    visibility: visible;
+    opacity: 1;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 /* Footer */
 footer {
     text-align: center;
@@ -215,4 +249,20 @@ footer {
     background-color: #333;
     color: #FFA500;
     margin-top: 20px;
+}
+
+/* Confirmation Page */
+header {
+    text-align: center;
+    margin: 50px 0;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #FFA500;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #FFF;
 }
