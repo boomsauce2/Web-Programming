@@ -15,6 +15,7 @@
         <a href="links.html">Links</a>
         <a href="order.html">Order</a>
         <a href="contact_form.html">Contact</a>
+        <a href="external_form.html">Feedback</a>
     </nav>
 
     <header>
@@ -24,56 +25,25 @@
 
     <section class="gallery-grid">
         <figure>
-            <img src="images/disc_golf_wichita.jpg" alt="Disc Golf Course in Wichita" class="gallery-img">
+            <img src="images/disc_golf_wichita.jpg" alt="Disc Golf Course in Wichita">
             <figcaption>Disc Golf Course in Wichita.</figcaption>
         </figure>
         <figure>
-            <img src="images/family_camping.jpg" alt="Family Camping" class="gallery-img">
+            <img src="images/family_camping.jpg" alt="Family Camping">
             <figcaption>Camping with family under the stars.</figcaption>
         </figure>
         <figure>
-            <img src="images/backyard_game.jpg" alt="Backyard Games" class="gallery-img">
+            <img src="images/backyard_game.jpg" alt="Backyard Games">
             <figcaption>Backyard games with friends.</figcaption>
         </figure>
         <figure>
-            <img src="images/mountain_campfire.jpg" alt="Mountain Campfire" class="gallery-img">
+            <img src="images/mountain_campfire.jpg" alt="Mountain Campfire">
             <figcaption>Relaxing by a mountain campfire.</figcaption>
         </figure>
     </section>
 
-    <!-- Lightbox -->
-    <div id="lightbox" class="lightbox hidden">
-        <span class="close-lightbox">&times;</span>
-        <img id="lightbox-image" src="" alt="Expanded Image">
-    </div>
-
     <footer>
         <p>&copy; 2024 Paul's Web Programming Portfolio. Built with creativity and love for the outdoors.</p>
     </footer>
-
-    <script>
-        // Lightbox functionality
-        const galleryImages = document.querySelectorAll('.gallery-img');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImage = document.getElementById('lightbox-image');
-        const closeLightbox = document.querySelector('.close-lightbox');
-
-        galleryImages.forEach(image => {
-            image.addEventListener('click', () => {
-                lightboxImage.src = image.src;
-                lightbox.classList.remove('hidden');
-            });
-        });
-
-        closeLightbox.addEventListener('click', () => {
-            lightbox.classList.add('hidden');
-        });
-
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                lightbox.classList.add('hidden');
-            }
-        });
-    </script>
 </body>
 </html>
