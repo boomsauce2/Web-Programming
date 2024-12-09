@@ -75,17 +75,20 @@
         </fieldset>
 
         <!-- Payment Method -->
-        <fieldset>
+        <fieldset class="payment-options">
             <legend>Payment Method</legend>
-            <label>
-                <input type="radio" name="payment" value="credit" required> Credit Card
-            </label>
-            <label>
-                <input type="radio" name="payment" value="paypal"> PayPal
-            </label>
-            <label>
-                <input type="radio" name="payment" value="bank"> Bank Transfer
-            </label>
+            <div>
+                <input type="radio" name="payment" id="credit" value="credit" required>
+                <label for="credit">Credit Card</label>
+            </div>
+            <div>
+                <input type="radio" name="payment" id="paypal" value="paypal">
+                <label for="paypal">PayPal</label>
+            </div>
+            <div>
+                <input type="radio" name="payment" id="bank" value="bank">
+                <label for="bank">Bank Transfer</label>
+            </div>
         </fieldset>
 
         <!-- Order Summary -->
