@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paul's Web Programming Portfolio</title>
+    <title>Order Products</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -17,20 +17,54 @@
         <a href="./contact_form.html">Contact</a>
     </nav>
 
-    <header class="hero">
-        <h1>Welcome to Paul's Web Programming Portfolio</h1>
-        <p>Discover tutorials, portfolio projects, and my love for coding and disc golf.</p>
-        <a href="#about" class="cta-button">Learn More</a>
+    <header>
+        <h1>Order Products</h1>
+        <p>Order your favorite gear and calculate the total cost dynamically!</p>
     </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hi, I’m Paul! I’m learning web programming as part of my Computer Science Degree. I’m passionate about coding and love outdoor adventures like disc golf.</p>
-        <p>This portfolio showcases the skills I’ve gained, from building webpages to interactive forms. Check out the links above to explore!</p>
+    <section>
+        <form id="orderForm">
+            <fieldset>
+                <legend>Personal Information</legend>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Product Selection</legend>
+                <label for="product">Select Product:</label>
+                <select id="product" name="product">
+                    <option value="25">Water Bottle - $25</option>
+                    <option value="35">Umbrella - $35</option>
+                </select>
+
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" placeholder="Enter quantity" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Order Summary</legend>
+                <p id="total">Total: $0.00</p>
+            </fieldset>
+
+            <button type="button" onclick="calculateTotal()">Calculate Total</button>
+        </form>
     </section>
 
     <footer>
-        <p>&copy; 2024 Paul's Web Programming Portfolio. Built with creativity and love for the outdoors.</p>
+        <p>&copy; 2024 Paul's Web Programming Portfolio. Built with love for coding and the outdoors.</p>
     </footer>
+
+    <script>
+        function calculateTotal() {
+            const product = parseInt(document.getElementById('product').value);
+            const quantity = parseInt(document.getElementById('quantity').value);
+            const total = product * quantity;
+            document.getElementById('total').textContent = `Total: $${total.toFixed(2)}`;
+        }
+    </script>
 </body>
 </html>
