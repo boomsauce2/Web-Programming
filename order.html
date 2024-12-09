@@ -4,107 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Products</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav>
-        <a href="./index.html">Home</a>
-        <a href="./text_terms.html">Terms</a>
-        <a href="./image_gallery.html">Gallery</a>
-        <a href="./multimedia.html">Multimedia</a>
-        <a href="./links.html">Links</a>
-        <a href="./order.html">Order</a>
-        <a href="./contact_form.html">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="text_terms.html">Terms</a>
+        <a href="image_gallery.html">Gallery</a>
+        <a href="multimedia.html">Multimedia</a>
+        <a href="links.html">Links</a>
+        <a href="order.html">Order</a>
     </nav>
 
     <header>
-        <h1>Order Your Favorite Products</h1>
-        <p>Choose your items and calculate the total dynamically!</p>
+        <h1>Order Products</h1>
+        <p>Order your favorite disc golf gear and get it delivered to your doorstep!</p>
     </header>
 
-    <section>
-        <form id="orderForm">
-            <!-- Personal Information -->
-            <fieldset>
-                <legend>Personal Information</legend>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    <form id="orderForm">
+        <!-- Personal Information -->
+        <fieldset>
+            <legend>Personal Information</legend>
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
 
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
-            </fieldset>
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" placeholder="Enter your phone number">
+        </fieldset>
 
-            <!-- Product Selection -->
-            <fieldset>
-                <legend>Order Details</legend>
-                <label for="product">Select Product:</label>
-                <select id="product" name="product">
-                    <option value="25">Water Bottle - $25</option>
-                    <option value="35">Umbrella - $35</option>
-                    <option value="15">Towel - $15</option>
-                    <option value="75">Disc Bag - $75</option>
-                </select>
+        <!-- Product Selection -->
+        <fieldset>
+            <legend>Product Selection</legend>
+            <label for="product">Select Product:</label>
+            <select id="product">
+                <option value="25">Insulated Water Bottle - $25.00</option>
+                <option value="35">Disc Golf Umbrella - $35.00</option>
+                <option value="15">Disc Golf Towel - $15.00</option>
+                <option value="40">Exclusive Disc Golf Disc - $40.00</option>
+                <option value="75">Disc Golf Bag - $75.00</option>
+                <option value="200">Disc Golf Cart - $200.00</option>
+            </select>
 
-                <label for="quantity">Quantity:</label>
-                <input type="number" id="quantity" name="quantity" min="1" placeholder="Enter quantity" required>
-            </fieldset>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" min="1" placeholder="Enter quantity" required>
+        </fieldset>
 
-            <!-- Delivery Information -->
-            <fieldset>
-                <legend>Delivery Information</legend>
-                <label for="shippingAddress">Shipping Address:</label>
-                <textarea id="shippingAddress" name="shippingAddress" placeholder="Enter your shipping address" rows="3" required></textarea>
+        <!-- Delivery Details -->
+        <fieldset>
+            <legend>Delivery Details</legend>
+            <label for="shippingAddress">Shipping Address:</label>
+            <textarea id="shippingAddress" placeholder="Enter your shipping address" rows="3" required></textarea>
 
-                <label for="deliveryDate">Preferred Delivery Date:</label>
-                <input type="date" id="deliveryDate" name="deliveryDate">
-            </fieldset>
+            <label for="deliveryDate">Preferred Delivery Date:</label>
+            <input type="date" id="deliveryDate">
+        </fieldset>
 
-            <!-- Order Summary -->
-            <fieldset>
-                <legend>Order Summary</legend>
-                <p>Total: <span id="total">$0.00</span></p>
-            </fieldset>
+        <!-- Payment Method -->
+        <fieldset>
+            <legend>Payment Method</legend>
+            <label>
+                <input type="radio" name="payment" value="credit" required> Credit Card
+            </label>
+            <label>
+                <input type="radio" name="payment" value="paypal"> PayPal
+            </label>
+            <label>
+                <input type="radio" name="payment" value="bank"> Bank Transfer
+            </label>
+        </fieldset>
 
-            <!-- Submit -->
-            <button type="button" onclick="calculateTotal()">Calculate Total</button>
-            <button type="submit">Place Order</button>
-        </form>
-    </section>
+        <!-- Order Summary -->
+        <fieldset>
+            <legend>Order Summary</legend>
+            <p>Total: <span id="total">$0.00</span></p>
+        </fieldset>
+
+        <button type="button" onclick="calculateTotal()">Calculate Total</button>
+        <button type="submit">Place Order</button>
+    </form>
 
     <footer>
-        <p>&copy; 2024 Paul's Web Programming Portfolio. Built with love for coding and the outdoors.</p>
+        <p>&copy; 2024 Paul's Web Programming Portfolio. Built with creativity and love for the outdoors.</p>
     </footer>
 
     <script>
-        // Sound setup
-        const successSound = new Audio('./sounds/success.mp3');
-        const errorSound = new Audio('./sounds/error.mp3');
-
-        // Calculate total function
         function calculateTotal() {
-            const product = parseInt(document.getElementById('product').value);
-            const quantity = parseInt(document.getElementById('quantity').value) || 0;
+            const product = parseFloat(document.getElementById('product').value);
+            const quantity = parseInt(document.getElementById('quantity').value);
             const total = product * quantity;
-            document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+            document.getElementById('total').innerText = `$${total.toFixed(2)}`;
+            new Audio('sounds/success.mp3').play();
         }
 
-        // Form submission handler
-        document.getElementById('orderForm').addEventListener('submit', function (e) {
-            e.preventDefault(); // Prevent actual form submission
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const quantity = parseInt(document.getElementById('quantity').value);
-
-            if (!name || !email || quantity < 1) {
-                errorSound.play().catch((error) => console.error('Error playing error sound:', error));
-                alert('Please fill in all required fields and ensure quantity is valid!');
-            } else {
-                successSound.play().catch((error) => console.error('Error playing success sound:', error));
-                alert('Thank you for your order!');
-            }
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your order!');
+            new Audio('sounds/success.mp3').play();
         });
     </script>
 </body>
