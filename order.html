@@ -18,117 +18,72 @@
     </nav>
 
     <header>
-        <h1>Order Products</h1>
-        <p>Order your favorite disc golf gear and get it delivered to your doorstep!</p>
+        <h1>Order Your Favorite Products</h1>
+        <p>Choose your items and calculate the total dynamically!</p>
     </header>
 
-    <form id="orderForm">
-        <fieldset>
-            <legend>Personal Information</legend>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    <section>
+        <form id="orderForm">
+            <fieldset>
+                <legend>Personal Information</legend>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </fieldset>
 
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
-        </fieldset>
+            <fieldset>
+                <legend>Order Details</legend>
+                <label for="product">Select Product:</label>
+                <select id="product" name="product">
+                    <option value="25">Water Bottle - $25</option>
+                    <option value="35">Umbrella - $35</option>
+                </select>
 
-        <fieldset>
-            <legend>Product Selection</legend>
-            <label for="product">Select Product:</label>
-            <select id="product" name="product">
-                <option value="25">Insulated Water Bottle - $25.00</option>
-                <option value="35">Disc Golf Umbrella - $35.00</option>
-                <option value="15">Disc Golf Towel - $15.00</option>
-                <option value="40">Exclusive Disc Golf Disc - $40.00</option>
-                <option value="75">Disc Golf Bag - $75.00</option>
-                <option value="200">Disc Golf Cart - $200.00</option>
-            </select>
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" placeholder="Enter quantity" required>
+            </fieldset>
 
-            <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" name="quantity" min="1" placeholder="Enter quantity" required>
-        </fieldset>
+            <fieldset>
+                <legend>Order Summary</legend>
+                <p>Total: <span id="total">$0.00</span></p>
+            </fieldset>
 
-        <fieldset>
-            <legend>Delivery Details</legend>
-            <label for="shippingAddress">Shipping Address:</label>
-            <textarea id="shippingAddress" name="shippingAddress" placeholder="Enter your shipping address" rows="3" required></textarea>
-
-            <label for="deliveryDate">Preferred Delivery Date:</label>
-            <input type="date" id="deliveryDate" name="deliveryDate">
-        </fieldset>
-
-        <fieldset>
-            <legend>Special Options</legend>
-            <label for="giftMessage">Gift Message:</label>
-            <textarea id="giftMessage" name="giftMessage" placeholder="Add a gift message (optional)" rows="2"></textarea>
-
-            <label>
-                <input type="checkbox" id="newsletter" name="newsletter"> Subscribe to our newsletter
-            </label>
-        </fieldset>
-
-        <fieldset>
-            <legend>Payment Method</legend>
-            <label>
-                <input type="radio" name="payment" value="credit" required> Credit Card
-            </label>
-            <label>
-                <input type="radio" name="payment" value="paypal"> PayPal
-            </label>
-            <label>
-                <input type="radio" name="payment" value="bank"> Bank Transfer
-            </label>
-        </fieldset>
-
-        <fieldset>
-            <legend>Order Summary</legend>
-            <p>Total: <span id="total">$0.00</span></p>
-            <p id="discount">No Discount Applied</p>
-        </fieldset>
-
-        <button type="button" onclick="calculateTotal()">Calculate Total</button>
-        <button type="submit">Place Order</button>
-    </form>
+            <button type="button" onclick="calculateTotal()">Calculate Total</button>
+            <button type="submit">Place Order</button>
+        </form>
+    </section>
 
     <footer>
-        <p>&copy; 2024 Paul's Web Programming Portfolio. Built with creativity and love for the outdoors.</p>
+        <p>&copy; 2024 Paul's Web Programming Portfolio. Built with love for coding and the outdoors.</p>
     </footer>
 
     <script>
+        // Sound setup
         const successSound = new Audio('./sounds/success.mp3');
         const errorSound = new Audio('./sounds/error.mp3');
 
+        // Calculate total function
         function calculateTotal() {
-            const product = parseFloat(document.getElementById('product').value);
+            const product = parseInt(document.getElementById('product').value);
             const quantity = parseInt(document.getElementById('quantity').value) || 0;
-            const discountSpan = document.getElementById('discount');
-            let discount = 0;
-
-            if (quantity >= 20 && quantity < 50) {
-                discount = 0.05; // 5% discount
-            } else if (quantity >= 50) {
-                discount = 0.10; // 10% discount
-            }
-
-            const total = product * quantity * (1 - discount);
-            document.getElementById('total').innerText = `$${total.toFixed(2)}`;
-            discountSpan.innerText = discount ? `Discount Applied: ${discount * 100}%` : 'No Discount Applied';
+            const total = product * quantity;
+            document.getElementById('total').textContent = `$${total.toFixed(2)}`;
         }
 
-        document.getElementById('orderForm').addEventListener('submit', function(e) {
+        // Form submission handler
+        document.getElementById('orderForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent actual form submission
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const quantity = parseInt(document.getElementById('quantity').value);
 
             if (!name || !email || quantity < 1) {
-                e.preventDefault();
-                errorSound.play();
-                alert('Please fill in all required fields and ensure quantity is valid.');
+                errorSound.play().catch((error) => console.error('Error playing error sound:', error));
+                alert('Please fill in all required fields and ensure quantity is valid!');
             } else {
-                successSound.play();
+                successSound.play().catch((error) => console.error('Error playing success sound:', error));
                 alert('Thank you for your order!');
             }
         });
