@@ -24,6 +24,7 @@
 
     <section>
         <form id="orderForm">
+            <!-- Personal Information -->
             <fieldset>
                 <legend>Personal Information</legend>
                 <label for="name">Name:</label>
@@ -31,25 +32,43 @@
 
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
             </fieldset>
 
+            <!-- Product Selection -->
             <fieldset>
                 <legend>Order Details</legend>
                 <label for="product">Select Product:</label>
                 <select id="product" name="product">
                     <option value="25">Water Bottle - $25</option>
                     <option value="35">Umbrella - $35</option>
+                    <option value="15">Towel - $15</option>
+                    <option value="75">Disc Bag - $75</option>
                 </select>
 
                 <label for="quantity">Quantity:</label>
                 <input type="number" id="quantity" name="quantity" min="1" placeholder="Enter quantity" required>
             </fieldset>
 
+            <!-- Delivery Information -->
+            <fieldset>
+                <legend>Delivery Information</legend>
+                <label for="shippingAddress">Shipping Address:</label>
+                <textarea id="shippingAddress" name="shippingAddress" placeholder="Enter your shipping address" rows="3" required></textarea>
+
+                <label for="deliveryDate">Preferred Delivery Date:</label>
+                <input type="date" id="deliveryDate" name="deliveryDate">
+            </fieldset>
+
+            <!-- Order Summary -->
             <fieldset>
                 <legend>Order Summary</legend>
                 <p>Total: <span id="total">$0.00</span></p>
             </fieldset>
 
+            <!-- Submit -->
             <button type="button" onclick="calculateTotal()">Calculate Total</button>
             <button type="submit">Place Order</button>
         </form>
