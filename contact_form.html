@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav>
-        <a href="./index.html">Home</a>
-        <a href="./text_terms.html">Terms</a>
-        <a href="./image_gallery.html">Gallery</a>
-        <a href="./multimedia.html">Multimedia</a>
-        <a href="./links.html">Links</a>
-        <a href="./order.html">Order</a>
-        <a href="./contact_form.html">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="text_terms.html">Terms</a>
+        <a href="image_gallery.html">Gallery</a>
+        <a href="multimedia.html">Multimedia</a>
+        <a href="links.html">Links</a>
+        <a href="order.html">Order</a>
+        <a href="contact_form.html">Contact</a>
     </nav>
 
     <header>
@@ -50,7 +50,46 @@
     <script>
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for your message!');
+
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const message = document.getElementById('message');
+
+            let hasError = false;
+
+            // Validate Name
+            if (!name.value.trim()) {
+                name.classList.add('error');
+                hasError = true;
+            } else {
+                name.classList.remove('error');
+            }
+
+            // Validate Email
+            if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+                email.classList.add('error');
+                hasError = true;
+            } else {
+                email.classList.remove('error');
+            }
+
+            // Validate Message
+            if (!message.value.trim()) {
+                message.classList.add('error');
+                hasError = true;
+            } else {
+                message.classList.remove('error');
+            }
+
+            // Play Error Sound if Validation Fails
+            if (hasError) {
+                new Audio('sounds/error.mp3').play();
+                alert('Please fix the errors in the form.');
+            } else {
+                // Success Sound on Valid Submission
+                new Audio('sounds/success.mp3').play();
+                alert('Thank you for your message!');
+            }
         });
     </script>
 </body>
