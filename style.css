@@ -53,11 +53,12 @@ nav a:hover {
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s;
 }
 
 .cta-button:hover {
     background-color: #FF8C00;
+    transform: scale(1.1);
 }
 
 /* Forms */
@@ -118,6 +119,12 @@ form button {
 
 form button:hover {
     background-color: #FF8C00;
+}
+
+/* Error Styling */
+input.error,
+textarea.error {
+    border: 2px solid red;
 }
 
 /* Payment Options */
