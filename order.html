@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Products</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,7 +24,6 @@
     </header>
 
     <form id="orderForm">
-        <!-- Personal Information -->
         <fieldset>
             <legend>Personal Information</legend>
             <label for="name">Name:</label>
@@ -36,7 +36,6 @@
             <input type="tel" id="phone" placeholder="Enter your phone number">
         </fieldset>
 
-        <!-- Product Selection -->
         <fieldset>
             <legend>Product Selection</legend>
             <label for="product">Select Product:</label>
@@ -53,45 +52,19 @@
             <input type="number" id="quantity" min="1" placeholder="Enter quantity" required>
         </fieldset>
 
-        <!-- Delivery Details -->
         <fieldset>
-            <legend>Delivery Details</legend>
-            <label for="shippingAddress">Shipping Address:</label>
-            <textarea id="shippingAddress" placeholder="Enter your shipping address" rows="3" required></textarea>
-
-            <label for="deliveryDate">Preferred Delivery Date:</label>
-            <input type="date" id="deliveryDate">
-        </fieldset>
-
-        <!-- Special Options -->
-        <fieldset>
-            <legend>Special Options</legend>
-            <label for="giftMessage">Gift Message:</label>
-            <textarea id="giftMessage" placeholder="Add a gift message (optional)" rows="2"></textarea>
-
+            <legend>Payment Method</legend>
             <label>
-                <input type="checkbox" id="newsletter"> Subscribe to our newsletter
+                <input type="radio" name="payment" value="credit" required> Credit Card
+            </label>
+            <label>
+                <input type="radio" name="payment" value="paypal"> PayPal
+            </label>
+            <label>
+                <input type="radio" name="payment" value="bank"> Bank Transfer
             </label>
         </fieldset>
 
-        <!-- Payment Method -->
-        <fieldset class="payment-options">
-            <legend>Payment Method</legend>
-            <div>
-                <input type="radio" name="payment" id="credit" value="credit" required>
-                <label for="credit">Credit Card</label>
-            </div>
-            <div>
-                <input type="radio" name="payment" id="paypal" value="paypal">
-                <label for="paypal">PayPal</label>
-            </div>
-            <div>
-                <input type="radio" name="payment" id="bank" value="bank">
-                <label for="bank">Bank Transfer</label>
-            </div>
-        </fieldset>
-
-        <!-- Order Summary -->
         <fieldset>
             <legend>Order Summary</legend>
             <p>Total: <span id="total">$0.00</span></p>
@@ -135,6 +108,9 @@
             e.preventDefault();
             alert('Thank you for your order!');
             new Audio('sounds/success.mp3').play();
+            setTimeout(() => {
+                window.location.href = 'thank_you.html';
+            }, 500);
         });
     </script>
 </body>
