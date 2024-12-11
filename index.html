@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paul's Web Programming Portfolio</title>
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,22 +21,25 @@
     <header class="hero">
         <div class="hero-overlay">
             <h1>Welcome to Paul's Web Programming Journey</h1>
-            <p>Discover tutorials, portfolio projects, and my love for coding and disc golf.</p>
-            <a href="#about" class="cta-button">Learn More</a>
+            <p>Your gateway to exploring tutorials, projects, and my passion for coding and disc golf.</p>
+            <a href="#about" class="cta-button">Explore My Work</a>
         </div>
     </header>
 
     <section id="about">
         <h2>About Me</h2>
-        <p>Hi, I’m Paul! I’m learning web programming as part of my Computer Science Degree. I’m passionate about coding and love outdoor adventures like disc golf.</p>
-        <p>This portfolio showcases the skills I’ve gained, from building webpages to interactive forms. Check out the links above to explore!</p>
+        <img src="images/family_photo.jpg" alt="Photo of Paul with his wife and daughter" class="about-photo">
+        <p>Hi, I’m Paul! I’m passionate about web programming and love combining creativity with technical skills. This portfolio reflects my journey in learning web development and highlights projects that align with my interests in disc golf and outdoor adventures.</p>
+        <p>My biggest inspiration is my beautiful family—my wife, who supports me in everything I do, and my wild and wonderful daughter, who reminds me every day why I work so hard. Achieving my Computer Science degree is just one step in my journey toward building a meaningful career after I retire from the military. This website is a testament to that journey, blending dedication, growth, and love for learning.</p>
+        <p>Feel free to explore my work, learn more about my projects, and reach out with feedback or questions. Thank you for visiting!</p>
     </section>
 
     <footer>
-        <p>&copy; 2024 Paul's Web Programming Portfolio. Built with creativity and love for the outdoors.</p>
+        <p>&copy; 2024 Paul's Web Programming Portfolio. Built with creativity, love for the outdoors, and my amazing family.</p>
     </footer>
 
     <script>
+        // Smooth scroll for the call-to-action button
         document.querySelector('.cta-button').addEventListener('click', function(e) {
             e.preventDefault();
             document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
