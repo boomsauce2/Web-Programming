@@ -8,14 +8,23 @@
 </head>
 <body>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="text_terms.html">Terms</a>
-        <a href="image_gallery.html">Gallery</a>
-        <a href="multimedia.html">Multimedia</a>
-        <a href="links.html">Links</a>
-        <a href="order.html">Order</a>
-        <a href="contact_form.html">Contact</a>
-        <a href="external_form.html">Feedback</a>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Paul's Portfolio</a>
+            <button class="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="text_terms.html">Terms</a>
+                <a href="image_gallery.html">Gallery</a>
+                <a href="multimedia.html">Multimedia</a>
+                <a href="links.html">Links</a>
+                <a href="order.html">Order</a>
+                <a href="external_form.html">Feedback</a>
+            </div>
+        </div>
     </nav>
 
     <header>
@@ -36,6 +45,21 @@
 
     <footer>
         <p>&copy; 2024 Paul's Web Programming Portfolio. Built with creativity, learning, and love for the outdoors.</p>
+        <button class="back-to-top" aria-label="Back to top">↑ Back to Top</button>
     </footer>
+
+    <script>
+        // Back to Top functionality
+        document.querySelector('.back-to-top').addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', function () {
+            navLinks.classList.toggle('open');
+        });
+    </script>
 </body>
 </html>
